@@ -1,0 +1,23 @@
+• Q1. Find all user videos that match a specific tag (show the most recent uploaded videos first)
+    videos_by_user_tag
+        user_id K
+        tag C1
+        added_date C2 desc
+        video_id C3 asc
+
+
+
+• Q2. Find all movies that features a specific actor and release year range (show the most recent videos first, and then sorted by title)
+    videos_by_actor_year
+        actor_name K
+        added_year C1 desc
+        title C2 asc
+        video_id C3 asc
+
+• Q3. Find all movies that features a specific actor, genre and release year range (show the most recent videos first, and then sorted by title)
+    videos_by_actor_genre
+        actor_name K
+        genre C1
+        added_year C2 desc
+        title C3 asc
+        video_id C4 asc
