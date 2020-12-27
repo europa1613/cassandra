@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import java.util.stream.Stream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -102,6 +104,11 @@ public class TodoListRestController {
         return ResponseEntity.ok(todoRepository.findAll()
                 .stream().map(dto -> new TaskResource(rewriteUrl(request) + dto.getUuid(), dto))
                 .collect(Collectors.toList()));
+    }
+
+    @GetMapping("/stream")
+    public Stream<Task> findAllStream() {
+      return   todoRepository.findAll().stream();
     }
     
     /**

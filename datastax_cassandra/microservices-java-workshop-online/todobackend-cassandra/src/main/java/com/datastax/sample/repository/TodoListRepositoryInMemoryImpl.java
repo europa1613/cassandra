@@ -24,7 +24,7 @@ import com.datastax.sample.model.Task;
 public class TodoListRepositoryInMemoryImpl implements TodoListRepository {
 
     /** This will be our storage in memory. */
-    private Map<UUID, Task> mapOfTasks = new ConcurrentHashMap<>();
+    private final Map<UUID, Task> mapOfTasks = new ConcurrentHashMap<>();
     
     /** {@inheritDoc} */
     @Override

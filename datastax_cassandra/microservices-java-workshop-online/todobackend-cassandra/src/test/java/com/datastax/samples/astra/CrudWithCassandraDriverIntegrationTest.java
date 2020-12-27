@@ -126,12 +126,12 @@ public class CrudWithCassandraDriverIntegrationTest implements TodoAppSchema {
         
         // Then you can find this task
         Assertions.assertFalse(!todoRepo.findById(newUid).isPresent());
-        LOGGER.info("+ And I can retrieve it", newUid);
+        LOGGER.info("+ And I can retrieve it {}", newUid);
         // And WHEN you delete it
         todoRepo.delete(newUid);
         // Then this is empty again
         Assertions.assertEquals(0, todoRepo.findAll().size());
-        LOGGER.info("+ And now this is removed", newUid);
+        LOGGER.info("+ And now this is removed {}", newUid);
     }
     
     @PreDestroy
