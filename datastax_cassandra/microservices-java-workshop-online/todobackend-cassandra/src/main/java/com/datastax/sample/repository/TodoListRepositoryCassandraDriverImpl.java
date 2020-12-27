@@ -33,7 +33,7 @@ import com.datastax.sample.model.TodoAppSchema;
  * 
  * @author Cedrick LUNVEN (@clunven)
  */
-//@Repository("todobackend.repo.cassandra-driver")
+@Repository("todobackend.repo.cassandra-driver")
 public class TodoListRepositoryCassandraDriverImpl implements TodoListRepository, TodoAppSchema {
     
     @Autowired

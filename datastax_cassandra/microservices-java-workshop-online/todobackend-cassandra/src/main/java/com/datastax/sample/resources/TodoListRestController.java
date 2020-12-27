@@ -64,8 +64,8 @@ public class TodoListRestController {
     private static final Logger logger = LoggerFactory.getLogger(TodoListRestController.class);
     
     @Autowired
-    @Qualifier("todobackend.repo.inmemory")
-    //@Qualifier("todobackend.repo.cassandra-driver")
+    //@Qualifier("todobackend.repo.inmemory")
+    @Qualifier("todobackend.repo.cassandra-driver")
     //@Qualifier("todobackend.repo.cassandra-object-mapper")
     //@Qualifier("todobackend.repo.spring-data-cassandra")
     private TodoListRepository todoRepository;
