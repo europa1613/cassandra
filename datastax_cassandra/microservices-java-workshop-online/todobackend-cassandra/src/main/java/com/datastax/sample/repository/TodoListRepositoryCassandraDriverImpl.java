@@ -83,12 +83,10 @@ public class TodoListRepositoryCassandraDriverImpl implements TodoListRepository
     /** {@inheritDoc} */
     @Override
     public List<Task> findAll() {
-        List<Task> targetList = cqlSession.execute(psFindAll.bind())
-                                          .all().stream()
-                                          .map(this::mapTaskRecord)
-                                          .collect(Collectors.toList());
-        Collections.sort(targetList); // Sorting based on 'order'
-        return targetList;
+        // Sorting based on 'order'
+        return cqlSession.execute(psFindAll.bind())
+            .all().stream()
+            .map(this::mapTaskRecord).sorted().collect(Collectors.toList());
     }
     
     /** {@inheritDoc} */
