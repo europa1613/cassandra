@@ -1,44 +1,40 @@
 package com.datastax.sample.springdata;
 
-import java.io.Serializable;
-import java.util.UUID;
-
-//import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
-//import org.springframework.data.cassandra.core.mapping.CassandraType;
-//import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
-//import org.springframework.data.cassandra.core.mapping.Column;
-//import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
-//import org.springframework.data.cassandra.core.mapping.Table;
-
 import com.datastax.sample.model.Task;
 import com.datastax.sample.model.TodoAppSchema;
+import java.io.Serializable;
+import java.util.UUID;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 /**
  * Entity for table and Spring Data.
  *
  * @author Cedrick LUNVEN (@clunven)
  */
-//@Table(value = TodoAppSchema.TABLE_TODO_TASKS)
+@Table(value = TodoAppSchema.TABLE_TODO_TASKS)
 public class TaskSpringData implements Serializable, Comparable<Task>, TodoAppSchema {
 
     private static final long serialVersionUID = -5844442448334944278L;
     
-    //@PrimaryKeyColumn(
-    //        name = TodoAppSchema.TASK_COL_UID, ordinal = 0, 
-    //        type = PrimaryKeyType.PARTITIONED)
-    //@CassandraType(type = Name.UUID)
+    @PrimaryKey(value = TASK_COL_UID)
+    @CassandraType(type = Name.UUID)
     private UUID uuid;
     
-    //@Column(TASK_COL_TITLE)
-    //@CassandraType(type = Name.TEXT)
+    @Column(TASK_COL_TITLE)
+    @CassandraType(type = Name.TEXT)
     private String title;
 
-    //@Column(TASK_COL_COMPLETED)
-    //@CassandraType(type = Name.BOOLEAN)
+    @Column(TASK_COL_COMPLETED)
+    @CassandraType(type = Name.BOOLEAN)
     private boolean completed = false;
 
-    //@Column(TASK_COL_OFFSET)
-    //@CassandraType(type = Name.INT)
+    @Column(TASK_COL_OFFSET)
+    @CassandraType(type = Name.INT)
     private int order = 0;
     
     public TaskSpringData() {}

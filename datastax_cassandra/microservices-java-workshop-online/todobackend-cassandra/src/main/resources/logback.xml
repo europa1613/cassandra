@@ -6,11 +6,11 @@
         </encoder>
     </appender>
 
-    <logger name="com.datastax.sample" level="INFO" additivity="false">
+    <logger name="com.datastax.sample" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
     
-    <root level="ERROR">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
     
