@@ -1,4 +1,4 @@
-package com.spring.cassandra.demo.springcassandrademo;
+package com.spring.cassandra.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
